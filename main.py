@@ -2,10 +2,11 @@ import csv
 import json
 import sys
 import os
-import tkinter as tk
-from tkinter import filedialog, messagebox
 from scraper import get_linkedin_url, scrape_linkedin_profile
-from extractor import extract_jd_info
+from extractor import extract_jd_info, check_firm_match
+
+INPUT_FILE = "input.csv"
+OUTPUT_FILE = "output.csv"
 
 OUTPUT_FIELDS = [
     "name",
@@ -14,6 +15,7 @@ OUTPUT_FIELDS = [
     "linkedin_url",
     "jd_year",
     "law_school",
+    "notes",
     "raw_profile_json",
 ]
 
@@ -30,6 +32,7 @@ def process_row(row: dict) -> dict:
         "linkedin_url": "",
         "jd_year": "",
         "law_school": "",
+        "notes": "",
         "raw_profile_json": "",
     }
 
@@ -51,7 +54,14 @@ def process_row(row: dict) -> dict:
 
     result["raw_profile_json"] = json.dumps(profile, ensure_ascii=False)
 
-    # Step 3: extract JD year and law school from education JSON
+    # Step 3: verify the LinkedIn profile actually lists the firm we searched for
+    firm_matched = check_firm_match(profile, company)
+    if not firm_matched:
+        print(f"  WARNING — firm '{company}' not found in LinkedIn profile. Flagging for manual review.")
+        result["notes"] = "* MANUAL REVIEW — firm not found in LinkedIn profile"
+        return result
+
+    # Step 4: extract JD year and law school from education JSON
     law_school, jd_year = extract_jd_info(profile)
     result["law_school"] = law_school or ""
     result["jd_year"] = jd_year or ""
@@ -60,62 +70,29 @@ def process_row(row: dict) -> dict:
     return result
 
 
-def pick_input_file() -> str:
-    """Open a file dialog to select the input CSV."""
-    root = tk.Tk()
-    root.withdraw()
-    root.attributes("-topmost", True)
-    path = filedialog.askopenfilename(
-        title="Select input CSV file",
-        filetypes=[("CSV files", "*.csv"), ("All files", "*.*")],
-    )
-    root.destroy()
-    if not path:
-        print("No file selected. Exiting.")
-        sys.exit(0)
-    return path
-
-
-def pick_output_file() -> str:
-    """Open a save dialog to choose output file name and location."""
-    root = tk.Tk()
-    root.withdraw()
-    root.attributes("-topmost", True)
-    path = filedialog.asksaveasfilename(
-        title="Save output CSV as",
-        defaultextension=".csv",
-        filetypes=[("CSV files", "*.csv"), ("All files", "*.*")],
-        initialfile="output.csv",
-    )
-    root.destroy()
-    if not path:
-        print("No output file selected. Exiting.")
-        sys.exit(0)
-    return path
-
-
 def main():
-    input_file = pick_input_file()
+    if not os.path.exists(INPUT_FILE):
+        print(f"Error: {INPUT_FILE} not found. Create it with columns: name, site_page, position")
+        sys.exit(1)
 
-    with open(input_file, newline="", encoding="utf-8") as f:
+    with open(INPUT_FILE, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         rows = list(reader)
 
-    print(f"\nLoaded {len(rows)} rows from {input_file}")
+    print(f"Loaded {len(rows)} rows from {INPUT_FILE}")
 
+    rows = rows[:5]  # TEST: limit to first 5 rows
     results = []
     for row in rows:
         result = process_row(row)
         results.append(result)
 
-    output_file = pick_output_file()
-
-    with open(output_file, "w", newline="", encoding="utf-8") as f:
+    with open(OUTPUT_FILE, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=OUTPUT_FIELDS)
         writer.writeheader()
         writer.writerows(results)
 
-    print(f"\nDone. Results saved to {output_file}")
+    print(f"\nDone. Results saved to {OUTPUT_FILE}")
 
 
 if __name__ == "__main__":

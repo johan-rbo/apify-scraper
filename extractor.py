@@ -1,4 +1,46 @@
 JD_KEYWORDS = {"juris doctor", "j.d.", "jd", "doctor of jurisprudence"}
+LAW_SCHOOL_KEYWORDS = {"law school", "school of law", "law center", "college of law"}
+
+
+def check_firm_match(profile: dict, site_page: str) -> bool:
+    """
+    Returns True if the LinkedIn profile contains the firm (site_page) in any
+    experience entry or the top-level companyName.
+    Matching is case-insensitive and partial (site_page contained in company name).
+    """
+    if not profile or not site_page:
+        return False
+
+    firm_lower = site_page.lower().strip()
+
+    # Check top-level companyName first (current job)
+    top_company = (profile.get("companyName") or "").lower()
+    if firm_lower in top_company:
+        return True
+
+    # Check all experience entries
+    experience_list = (
+        profile.get("experience")
+        or profile.get("experiences")
+        or profile.get("experienceHistory")
+        or []
+    )
+    for entry in experience_list:
+        company = (
+            entry.get("companyName")
+            or entry.get("company")
+            or entry.get("subtitle")
+            or ""
+        ).lower()
+        if firm_lower in company:
+            return True
+
+    # Also check headline as a fallback
+    headline = (profile.get("headline") or "").lower()
+    if firm_lower in headline:
+        return True
+
+    return False
 
 
 def _is_jd(degree: str) -> bool:
@@ -6,6 +48,13 @@ def _is_jd(degree: str) -> bool:
         return False
     normalized = degree.lower().strip()
     return any(kw in normalized for kw in JD_KEYWORDS)
+
+
+def _is_law_school(school_name: str) -> bool:
+    if not school_name:
+        return False
+    normalized = school_name.lower().strip()
+    return any(kw in normalized for kw in LAW_SCHOOL_KEYWORDS)
 
 
 def extract_jd_info(profile: dict) -> tuple[str | None, str | None]:
@@ -38,14 +87,16 @@ def extract_jd_info(profile: dict) -> tuple[str | None, str | None]:
             or entry.get("fieldOfStudy")
             or ""
         )
+        school_name = (
+            entry.get("title")
+            or entry.get("schoolName")
+            or entry.get("school")
+            or entry.get("institutionName")
+            or ""
+        )
 
-        if _is_jd(degree):
-            law_school = (
-                entry.get("title")          # dev_fusion actor uses "title" for school name
-                or entry.get("schoolName")
-                or entry.get("school")
-                or entry.get("institutionName")
-            )
+        if _is_jd(degree) or (not degree and _is_law_school(school_name)):
+            law_school = school_name or None
             # dev_fusion actor: period.endedOn.year
             period = entry.get("period") or {}
             ended_on = period.get("endedOn") or {}
