@@ -2,6 +2,65 @@ JD_KEYWORDS = {"juris doctor", "j.d.", "jd", "doctor of jurisprudence"}
 LAW_SCHOOL_KEYWORDS = {"law school", "school of law", "law center", "college of law"}
 
 
+def extract_work_history(profile: dict) -> list[dict]:
+    """
+    Extract work experience entries from the LinkedIn profile.
+    Returns a list of dicts with: company, title, start_year, end_year.
+    """
+    experience_list = (
+        profile.get("experience")
+        or profile.get("experiences")
+        or profile.get("experienceHistory")
+        or []
+    )
+
+    history = []
+    for entry in experience_list:
+        company = (
+            entry.get("companyName")
+            or entry.get("company")
+            or entry.get("subtitle")
+            or ""
+        ).strip()
+
+        title = (
+            entry.get("title")
+            or entry.get("jobTitle")
+            or entry.get("role")
+            or ""
+        ).strip()
+
+        # dev_fusion actor uses "M-YYYY" strings in jobStartedOn / jobEndedOn
+        period = entry.get("period") or {}
+        started_on = period.get("startedOn") or {}
+        ended_on = period.get("endedOn") or {}
+
+        start_year = (
+            started_on.get("year")
+            or entry.get("startYear")
+            or entry.get("start_year")
+            or _parse_year_from_date(entry.get("jobStartedOn") or entry.get("startDate") or entry.get("start_date"))
+        )
+
+        still_working = entry.get("jobStillWorking", False)
+        end_year = None if still_working else (
+            ended_on.get("year")
+            or entry.get("endYear")
+            or entry.get("end_year")
+            or _parse_year_from_date(entry.get("jobEndedOn") or entry.get("endDate") or entry.get("end_date"))
+        )
+
+        if company or title:
+            history.append({
+                "company": company,
+                "title": title,
+                "start_year": str(start_year) if start_year else "",
+                "end_year": str(end_year) if end_year else "Present",
+            })
+
+    return history
+
+
 def check_firm_match(profile: dict, site_page: str) -> bool:
     """
     Returns True if the LinkedIn profile contains the firm (site_page) in any
