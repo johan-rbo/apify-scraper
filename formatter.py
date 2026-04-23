@@ -322,7 +322,7 @@ def format_work_history(raw_profile_json: str, firm_bio_link: str = "") -> str:
         current_firm = roles[0]["firm"]
         if bio_firm.lower() not in current_firm.lower() and current_firm.lower() not in bio_firm.lower():
             flags.append(
-                f"⚠️ Firm mismatch: Firm bio is {bio_firm} ({bio_domain}) but LinkedIn shows "
+                f"[!] Firm mismatch: Firm bio is {bio_firm} ({bio_domain}) but LinkedIn shows "
                 f"most recent role at {current_firm}. Attorney may have recently moved and not "
                 f"updated LinkedIn, or LinkedIn data may be stale."
             )
@@ -335,7 +335,7 @@ def format_work_history(raw_profile_json: str, firm_bio_link: str = "") -> str:
             gap_months = (next_start[1] - curr_end[1]) * 12 + (next_start[0] - curr_end[0])
             if gap_months >= 6:
                 flags.append(
-                    f"⚠️ Gap: ~{gap_months}-month gap between "
+                    f"[!] Gap: ~{gap_months}-month gap between "
                     f"{roles[i + 1]['firm']} and {roles[i]['firm']}."
                 )
 
@@ -352,8 +352,8 @@ def format_work_history(raw_profile_json: str, firm_bio_link: str = "") -> str:
             end_yr = _parse_year_int(r["ended"], r["still_working"]) or CURRENT_YEAR
             if start_yr and (end_yr - start_yr) >= 10:
                 flags.append(
-                    f"⚠️ Long tenure: {end_yr - start_yr}+ years at {firm} with no promotion "
-                    f"shown — likely made Partner before lateraling. Press release search recommended."
+                    f"[!] Long tenure: {end_yr - start_yr}+ years at {firm} with no promotion "
+                    f"shown - likely made Partner before lateraling. Press release search recommended."
                 )
 
     # Title jump (Associate at Firm A → Partner at Firm B, no partner history at A)
@@ -367,7 +367,7 @@ def format_work_history(raw_profile_json: str, firm_bio_link: str = "") -> str:
                 )
                 if not had_partner_at_prev:
                     flags.append(
-                        f"⚠️ Title jump: Associate at {prev_firm} → Partner at {curr_firm} — "
+                        f"[!] Title jump: Associate at {prev_firm} -> Partner at {curr_firm} - "
                         f"may have made Partner at {prev_firm} first."
                     )
 

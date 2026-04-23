@@ -1,6 +1,101 @@
-name,site_page,position
-Jennifer Levy,Cleary Gottlieb,Senior Discovery Attorney
-David A. Newman,Morrison Foerster,Partner
-David A. Perez,Morrison Foerster,Partner
-Meg Houlihan,Morrison Foerster,Partner
-Mitchell S. Presser,Morrison Foerster,Partner
+name,site_page,position,email,url,locations_str
+Jesse Hixson,A&O Shearman,Associate,jesse.hixson@aoshearman.com,https://www.aoshearman.com/en/people/jesse-hixson,New York
+Ishman Kyle,Freshfields,Associate,kyle.ishman@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/i/ishman-kyle/,New York
+Garrett Celia,Freshfields,Associate,Celia.Garrett@Freshfields.com,https://www.freshfields.com/en/find-a-lawyer/g/garrett-celia/,New York
+Gayer De Mena Nathan,Freshfields,Associate,Nathan.GayerdeMena@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/g/gayer-de-mena-nathan/,New York
+Rubinshteyn Abby,Freshfields,Associate,abby.rubinshteyn@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/r/rubinshteyn-abby/,New York
+Saleeby Cates,Freshfields,Associate,cates.saleeby@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/s/saleeby-cates/,New York
+Bhatti Shahrani,Freshfields,Associate,shahrani.bhatti@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/b/bhatti-shahrani/,New York
+Reitzel Kyla,Freshfields,Associate,Kyla.Reitzel@Freshfields.com,https://www.freshfields.com/en/find-a-lawyer/r/reitzel-kyla/,New York
+Grace Fuscoe,Willkie Farr,Associate,,https://www.willkie.com/professionals/f/fuscoe-grace,Washington DC
+He Yuanmeng,Freshfields,Associate,Yuanmeng.He@Freshfields.com,https://www.freshfields.com/en/find-a-lawyer/h/he-yuanmeng/,New York
+Panek Scott,Freshfields,Associate,scott.panek@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/p/panek-scott/,Silicon Valley
+Wolter Claire,Freshfields,Associate,claire.wolter@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/w/wolter-claire/,Washington DC
+Myers Jackson,Freshfields,Associate,jackson.myers@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/m/myers-jackson/,New York
+Owoka Tosin,Freshfields,Associate,tosin.owoka@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/o/owoka-tosin/,New York
+Ampudia Alexandra,Freshfields,Associate,ally.ampudia@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/a/ampudia-alexandra/,Washington DC
+de Villiers Elischke,Freshfields,Associate,elischke.devilliers@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/d/de-villiers-elischke/,New York
+Keller Erin,Freshfields,Associate,erin.Keller@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/k/keller-erin/,New York
+Hagen Casey,Freshfields,Associate,casey.hagen@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/h/hagen-casey/,New York
+Rosenfeld Jacob,Freshfields,Associate,jacob.Rosenfeld@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/r/rosenfeld-jacob/,New York
+Reeves Jebril,Freshfields,Associate,jebril.reeves@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/r/reeves-jebril/,New York
+Banifatemi Kevin,Freshfields,Associate,kevin.banifatemi@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/b/banifatemi-kevin/,Silicon Valley
+Talia Abed,A&O Shearman,Associate,talia.abed@aoshearman.com,https://www.aoshearman.com/en/people/talia-abed,New York
+Allen Ian,Freshfields,Associate,Ian.Allen@Freshfields.com,https://www.freshfields.com/en/find-a-lawyer/a/allen-ian/,Washington DC
+Barkman Jared,Freshfields,Associate,jared.barkman@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/b/barkman-jared/,New York
+Gabriel Fields,A&O Shearman,Associate,gabriel.fields@aoshearman.com,https://www.aoshearman.com/en/people/gabriel-fields,New York
+Beeman Allison,Freshfields,Associate,allison.beeman@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/b/beeman-allison/,Washington DC
+Grace Ann Pulliam,Vinson & Elkins,Associate,gpulliam@velaw.com,https://www.velaw.com/people/grace-ann-pulliam-2/,Dallas
+Barrett Connor,Freshfields,Associate,connor.barrett@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/b/barrett-connor/,San Francisco
+Rothstein Jake,Freshfields,Associate,jake.rothstein@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/r/rothstein-jake/,New York
+Barnosky Clara,Freshfields,Associate,clara.barnosky@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/b/barnosky-clara/,San Francisco
+Norick Long Sean,Freshfields,Associate,sean.NorickLong@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/n/norick-long-sean/,Washington DC
+Pournaghshband Shahab,Freshfields,Associate,shahab.pournaghshband@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/p/pournaghshband-shahab/,New York
+van der Wal Katja,Freshfields,Associate,katja.vanderwal@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/v/van-der-wal-katja/,New York
+Quatrone Gigi,Freshfields,Associate,gigi.Quatrone@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/q/quatrone-gigi/,New York
+Benjamin Lea Hoekstra,Latham & Watkins,Associate,benjamin.hoekstra@lw.com,https://www.lw.com/en/people/benjamin-hoekstra,"Los Angeles, New York"
+Zhang Sabrina,Freshfields,Associate,sabrina.zhang@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/z/zhang-sabrina/,New York
+Jiang Rosie,Freshfields,Associate,rosie.jiang@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/j/jiang-rosie/,New York
+Michael Lyndon-James,A&O Shearman,Associate,michael.lyndon-james@aoshearman.com,https://www.aoshearman.com/en/people/michael-lyndon-james,New York
+Heilborn Thomas,Freshfields,Associate,Thomas.Heilborn@Freshfields.com,https://www.freshfields.com/en/find-a-lawyer/h/heilborn-thomas/,New York
+Zhou Eponine,Freshfields,Associate,eponine.zhou@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/z/zhou-eponine/,New York
+Razipour Keian,Freshfields,Associate,keian.razipour@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/r/razipour-keian/,New York
+Rudd Joshua,Freshfields,Associate,joshua.rudd@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/r/rudd-joshua/,New York
+Ju Eunice,Freshfields,Associate,Eunice.Ju@Freshfields.com,https://www.freshfields.com/en/find-a-lawyer/j/ju-eunice/,New York
+Pultman Aaron,Freshfields,Associate,aaron.pultman@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/p/pultman-aaron/,New York
+Aristotle Sasha,Freshfields,Associate,sasha.Aristotle@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/a/aristotle-sasha/,New York
+Azzopardi Matt,Freshfields,Associate,Matt.Azzopardi@Freshfields.com,https://www.freshfields.com/en/find-a-lawyer/a/azzopardi-matt/,Washington DC
+Laura Zabele,Latham & Watkins,Associate,laura.zabele@lw.com,https://www.lw.com/en/people/laura-zabele,"Boston, Los Angeles"
+Rondeau D. Andrew,Freshfields,Associate,andrew.rondeau@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/r/rondeau-d.-andrew,Boston
+Abut Victoria,Freshfields,Associate,Victoria.Abut@Freshfields.com,https://www.freshfields.com/en/find-a-lawyer/a/abut-victoria/,New York
+Orozco Edgar,Freshfields,Associate,edgar.orozco@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/o/orozco-edgar/,Silicon Valley
+Joe Tambasco,A&O Shearman,Associate,Joe.Tambasco@aoshearman.com,https://www.aoshearman.com/en/people/joe-tambasco,New York
+Henderson Andrew,Freshfields,Associate,andrew.henderson@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/h/henderson-andrew/,Washington DC
+Perez Diego,Freshfields,Associate,diego.perez@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/p/perez-diego/,New York
+Riley Jordan,Freshfields,Associate,jordan.riley@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/r/riley-jordan/,New York
+Betancor AndrÃ©s,Freshfields,Associate,andres.betancor@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/b/betancor-andres/,"Silicon Valley, San Francisco"
+Rublin Matthew,Freshfields,Associate,Matthew.Rublin@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/r/rublin-matthew/,New York
+Baker Sahara,Freshfields,Associate,sahara.baker@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/b/baker-sahara/,New York
+Zhu Lina,Freshfields,Associate,Lina.ZHU@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/z/zhu-lina/,New York
+Jeon Sohyun,Freshfields,Associate,alice.jeon@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/j/jeon-sohyun/,New York
+Berman Rebecca,Freshfields,Associate,rebecca.berman@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/b/berman-rebecca/,New York
+O'Hara Shannon,Freshfields,Associate,Shannon.O'Hara@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/o/ohara-shannon/,New York
+Hankin Noa,Freshfields,Associate,noa.hankin@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/h/hankin-noa/,New York
+Hargrave Augustine,Freshfields,Associate,augustine.hargrave@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/h/hargrave-augustine/,New York
+Bornudd David,Freshfields,Associate,david.bornudd@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/b/bornudd-david/,New York
+Nguyen Kelli,Freshfields,Associate,kelli.Nguyen@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/n/nguyen-kelli/,New York
+Hervey Ginger,Freshfields,Associate,ginger.hervey@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/h/hervey-ginger/,New York
+Patrick Hartigan,A&O Shearman,Associate,patrick.hartigan@aoshearman.com,https://www.aoshearman.com/en/people/patrick-hartigan,New York
+Ge Yijun,Freshfields,Associate,jenny.ge@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/g/ge-yijun/,Silicon Valley
+Baranko Anna,Freshfields,Associate,anna.Baranko@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/b/baranko-anna/,Washington DC
+Park Jenny,Freshfields,Associate,Jenny.Park@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/p/park-jenny/,New York
+Hallisey Sydney,Freshfields,Associate,Sydney.Hallisey@Freshfields.com,https://www.freshfields.com/en/find-a-lawyer/h/hallisey-sydney/,New York
+Baek Jennifer,Freshfields,Associate,Jennifer.Baek@Freshfields.com,https://www.freshfields.com/en/find-a-lawyer/b/baek-jennifer/,San Francisco
+Saber Israa,Freshfields,Associate,Israa.Saber@Freshfields.com,https://www.freshfields.com/en/find-a-lawyer/s/saber-israa/,New York
+Sam Ellison,Ropes & Gray,Associate,Samuel.Ellison@ropesgray.com,https://www.ropesgray.com/en/people/e/samuel-ellison,New York
+Yoo Evan,Freshfields,Associate,Evan.Yoo@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/y/yoo-evan/,New York
+Garrett Tyler,Freshfields,Associate,Tyler.Garrett@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/g/garrett-tyler/,Washington DC
+Amado Aranda Juan,Freshfields,Associate,Juan.AmadoAranda@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/a/amado-aranda-juan/,Washington DC
+Zhan Amy,Freshfields,Associate,amy.zhan@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/z/zhan-amy/,New York
+Abbott Emily,Freshfields,Associate,emily.abbott@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/a/abbott-emily/,Washington DC
+Sean S. Malone,Paul Weiss,Associate,smalone@paulweiss.com,https://www.paulweiss.com/professionals/associates/sean-s-malone,Washington DC
+Henslee Brandt,Freshfields,Associate,brandt.henslee@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/h/henslee-brandt/,New York
+Aubrey Anna,Freshfields,Associate,anna.Aubrey@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/a/aubrey-anna/,Washington DC
+Kennedy Alex,Freshfields,Associate,Alex.Kennedy@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/k/kennedy-alex/,New York
+Johnson Nicole,Freshfields,Associate,nicole.johnson@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/j/johnson-nicole/,New York
+Phelan Jordan,Freshfields,Associate,jordan.phelan@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/p/phelan-jordan/,New York
+Abebe Essey,Freshfields,Associate,essey.abebe@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/a/abebe-essey/,New York
+Bananzadeh Tarlan,Freshfields,Associate,tarlan.bananzadeh@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/b/bananzadeh-tarlan/,Silicon Valley
+Betancourt Jessica,Freshfields,Associate,jessica.betancourt@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/b/betancourt-jessica/,New York
+Huang Amanda,Freshfields,Associate,amanda.huang@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/h/huang-amanda/,New York
+Isaac Ortal,Freshfields,Associate,ortal.isaac@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/i/isaac-ortal/,New York
+Amstislavskaya Mila,Freshfields,Associate,Mila.Amstislavskaya@Freshfields.com,https://www.freshfields.com/en/find-a-lawyer/a/amstislavskaya-mila/,New York
+Hirschhorn Paul,Freshfields,Associate,paul.Hirschhorn@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/h/hirschhorn-paul/,New York
+Betts Adam,Freshfields,Associate,adam.betts@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/b/betts-adam/,New York
+Blakeway-Phillips Isobel,Freshfields,Associate,isobel.Blakeway-Phillips@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/b/blakeway-phillips-isobel/,New York
+Joshi Kaytki,Freshfields,Associate,kaytki.joshi@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/j/joshi-kaytki/,New York
+Hodgkinson Daniel,Freshfields,Associate,Daniel.Hodgkinson@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/h/hodgkinson-daniel/,New York
+Rao Sruthi,Freshfields,Associate,sruthi.rao@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/r/rao-sruthi/,New York
+Palmer Paloma,Freshfields,Associate,paloma.palmer@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/p/palmer-paloma/,New York
+Pastor Merchante Juan,Freshfields,Associate,juan.pastor@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/p/pastor-merchante-juan/,New York
+Goodlad Madeline,Freshfields,Associate,madeline.goodlad@freshfields.com,https://www.freshfields.com/en/find-a-lawyer/g/goodlad-madeline/,New York

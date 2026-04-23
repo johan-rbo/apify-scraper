@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Candidate Output Preview</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f4f5f7; margin: 0; padding: 24px; color: #1a1a2e; }
+  h1 { font-size: 20px; font-weight: 600; margin-bottom: 20px; color: #1a1a2e; }
+  .card { background: #fff; border-radius: 10px; margin-bottom: 16px; box-shadow: 0 1px 4px rgba(0,0,0,.08); overflow: hidden; border-left: 5px solid #4caf50; }
+  .card.flagged { border-left-color: #f59e0b; }
+  .card-header { display: flex; align-items: baseline; gap: 12px; padding: 14px 20px 10px; border-bottom: 1px solid #f0f0f0; flex-wrap: wrap; }
+  .name { font-size: 17px; font-weight: 700; }
+  .meta { font-size: 13px; color: #666; flex: 1; }
+  .status { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: #e8f5e9; color: #2e7d32; white-space: nowrap; }
+  .flagged .status { background: #fff8e1; color: #e65100; }
+  .card-body { display: flex; gap: 0; }
+  .col { padding: 14px 20px; }
+  .col.wide { flex: 1; border-left: 1px solid #f0f0f0; }
+  .label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: #888; margin-bottom: 4px; }
+  .work-history { font-size: 13.5px; line-height: 1.8; white-space: pre-wrap; }
+  a { color: #1565c0; text-decoration: none; font-size: 13px; word-break: break-all; }
+  a:hover { text-decoration: underline; }
+  .empty { color: #bbb; font-style: italic; }
+</style>
+</head>
+<body>
+<h1>Candidate Output Preview</h1>
+
+    <div class="card ok">
+      <div class="card-header">
+        <div class="name">Jennifer Levy</div>
+        <div class="meta">Cleary Gottlieb &nbsp;·&nbsp; Senior Discovery Attorney</div>
+        <div class="status">✓ Match</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="label">LinkedIn</div>
+          <div><span class="empty">Not found</span></div>
+          <div class="label" style="margin-top:12px">Law School</div>
+          <div><span class=empty>—</span></div>
+          <div class="label" style="margin-top:12px">JD Year</div>
+          <div><span class=empty>—</span></div>
+        </div>
+        <div class="col wide">
+          <div class="label">Formatted Work History</div>
+          <div class="work-history"><span class="empty">—</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card ok">
+      <div class="card-header">
+        <div class="name">David A. Newman</div>
+        <div class="meta">Morrison Foerster &nbsp;·&nbsp; Partner</div>
+        <div class="status">✓ Match</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="label">LinkedIn</div>
+          <div><a href="https://www.linkedin.com/in/david-a-newman" target="_blank">https://www.linkedin.com/in/david-a-newman</a></div>
+          <div class="label" style="margin-top:12px">Law School</div>
+          <div>Yale Law School</div>
+          <div class="label" style="margin-top:12px">JD Year</div>
+          <div>2006</div>
+        </div>
+        <div class="col wide">
+          <div class="label">Formatted Work History</div>
+          <div class="work-history">Partner, Morrison Foerster (Washington DC, Mar 2025 - Present)<br>Partner, Morrison &amp; Foerster (DC and New York, Feb 2017 - Jan 2021)<br>Law Clerk, Hon. Ruth Bader Ginsburg, Supreme Court of the U.S. (Washington D.C., Jul 2010 - Jul 2011)<br>Associate, Jenner &amp; Block (New York City, Sep 2008 - Jun 2010)<br>Law Clerk, U.S. Court of Appeals for the Second Circuit (New York City, Aug 2007 - Aug 2008)<br>Law Clerk, U.S. District Court for the Southern District of New York (New York City, Aug 2006 - Aug 2007)<br><br>Partner since: Feb 2017</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card ok">
+      <div class="card-header">
+        <div class="name">David A. Perez</div>
+        <div class="meta">Morrison Foerster &nbsp;·&nbsp; Partner</div>
+        <div class="status">✓ Match</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="label">LinkedIn</div>
+          <div><a href="https://www.linkedin.com/in/david-perez-a3228336" target="_blank">https://www.linkedin.com/in/david-perez-a3228336</a></div>
+          <div class="label" style="margin-top:12px">Law School</div>
+          <div>Yale Law School</div>
+          <div class="label" style="margin-top:12px">JD Year</div>
+          <div>2010</div>
+        </div>
+        <div class="col wide">
+          <div class="label">Formatted Work History</div>
+          <div class="work-history">Partner, Morrison Foerster (Seattle, Feb 2026 - Present)<br>Partner, Perkins Coie (Seattle, May 2025 - Feb 2026)<br>Partner, Perkins Coie (Seattle, Jan 2019 - May 2025)<br>Counsel, Perkins Coie (Seattle, 2012 - Dec 2018)<br><br>Partner since: Jan 2019</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card ok">
+      <div class="card-header">
+        <div class="name">Meg Houlihan</div>
+        <div class="meta">Morrison Foerster &nbsp;·&nbsp; Partner</div>
+        <div class="status">✓ Match</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="label">LinkedIn</div>
+          <div><a href="https://www.linkedin.com/in/megan-houlihan-102b11168" target="_blank">https://www.linkedin.com/in/megan-houlihan-102b11168</a></div>
+          <div class="label" style="margin-top:12px">Law School</div>
+          <div>Yale Law School</div>
+          <div class="label" style="margin-top:12px">JD Year</div>
+          <div>2015</div>
+        </div>
+        <div class="col wide">
+          <div class="label">Formatted Work History</div>
+          <div class="work-history">Partner, Morrison Foerster (Feb 2026 - Present)<br>Partner, Perkins Coie (Portland, Jan 2025 - Present)<br>Counsel, Perkins Coie (Portland, Jul 2022 - Jan 2025)<br>Associate, Stoll Berne (Mar 2020 - Jun 2022)<br>Associate, Tonkon Torp (Oct 2017 - Mar 2020)<br>Law Clerk, U.S. District Courts, District of Oregon (Aug 2015 - Aug 2016)<br><br>Partner since: Jan 2025</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card ok">
+      <div class="card-header">
+        <div class="name">Mitchell S. Presser</div>
+        <div class="meta">Morrison Foerster &nbsp;·&nbsp; Partner</div>
+        <div class="status">✓ Match</div>
+      </div>
+      <div class="card-body">
+        <div class="col">
+          <div class="label">LinkedIn</div>
+          <div><a href="https://www.linkedin.com/in/mitchell-presser-95ab5bb" target="_blank">https://www.linkedin.com/in/mitchell-presser-95ab5bb</a></div>
+          <div class="label" style="margin-top:12px">Law School</div>
+          <div>Yale Law School</div>
+          <div class="label" style="margin-top:12px">JD Year</div>
+          <div>1989</div>
+        </div>
+        <div class="col wide">
+          <div class="label">Formatted Work History</div>
+          <div class="work-history">Co-Chair, Global Corporate Department, Morrison Foerster (New York, Apr 2020 - Present)<br>Partner, Freshfields Bruckhaus Deringer (Sep 2014 - Apr 2020)<br>Partner, Paine &amp; Partners (Nov 2006 - Jul 2014)<br>Partner, Wachtell, Lipton, Rosen &amp; Katz (Aug 1989 - Nov 2006)<br><br>Partner since: Aug 1989<br><br>⚠️ Long tenure: 17+ years at Wachtell, Lipton, Rosen &amp; Katz with no promotion shown — likely made Partner before lateraling. Press release search recommended.</div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

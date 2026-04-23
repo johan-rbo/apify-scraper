@@ -21,12 +21,13 @@ def _run_actor(actor_id: str, input_data: dict) -> list:
     return response.json()
 
 
-def get_linkedin_url(name: str, company: str, position: str) -> str | None:
+def get_linkedin_url(name: str, company: str, position: str, locations_str: str = "") -> str | None:
     """
     Use Apify SERP scraper to find the LinkedIn profile URL for a person.
     Returns the first linkedin.com/in/ URL found, or None.
     """
-    keyword = f"{name} {company} {position} LinkedIn"
+    location_part = f" {locations_str}" if locations_str else ""
+    keyword = f"{name} {company} {position}{location_part} LinkedIn"
     input_data = {
         "country": "US",
         "include_merged": True,
