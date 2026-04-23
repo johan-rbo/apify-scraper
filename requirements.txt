@@ -1,2 +1,3 @@
 requests
 python-dotenv
+# anthropic — only needed if running work_history_formatter.py standalone
