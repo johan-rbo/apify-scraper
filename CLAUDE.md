@@ -83,24 +83,28 @@ Each entry becomes:
 - Partner ← "partner", "shareholder", "principal", "member"
 - Senior Counsel ← "senior counsel"
 - Counsel ← "counsel", "special counsel", "of counsel"
+- Senior Associate ← "senior associate", "senior attorney" (PRESERVED)
+- International Associate ← "international associate" (PRESERVED)
 - Associate ← "associate", "attorney", "solicitor", "lawyer"
 - Clerkship ← extracts judge name: "Law Clerk, Hon. {judge}, {court}"
 
 **Flags generated:**
-- `[!] Firm mismatch` — LinkedIn current firm ≠ firm from bio
-- `[!] Gap` — 6+ month gap between roles
-- `[!] Long tenure` — 10+ years without promotion (may be undisclosed Partner)
-- `[!] Title jump` — Associate → Partner across firms (hidden Partner status)
+- `[!] Firm mismatch` - LinkedIn current firm != firm from bio
+- `[!] Gap` - 6+ month gap between roles
+- `[!] Long tenure` - 10+ years without promotion (may be undisclosed Partner)
+- `[!] Title jump` - Associate -> Partner across firms (hidden Partner status)
 
 ---
 
 ## Output Columns
 
 **output.csv** (full debug):
-`name, site_page, position, email, url, locations_str, linkedin_url, jd_year, law_school, work_history (JSON), formatted_work_history, notes, raw_profile_json`
+`name, site_page, position, email, url, locations_str, linkedin_url, jd_year, law_school, work_history (JSON), formatted_work_history (multi-line), notes, raw_profile_json`
 
-**results.csv** (clean summary):
-`name, site_page, position, email, url, locations_str, status, linkedin_url, law_school, jd_year, work_history`
+**results.csv** (clean summary - spreadsheet-ready):
+`name, site_page, position, email, url, locations_str, status, linkedin_url, law_school, jd_year, work_history (multi-line, properly quoted)`
+
+Note: `results.csv` preserves newlines in work_history fields but uses proper CSV quoting. All special characters (emojis, em-dashes) are replaced with ASCII equivalents for maximum spreadsheet compatibility.
 
 ---
 
@@ -128,14 +132,18 @@ Leighton delivered `work_history_formatter.py` as a reference implementation usi
 
 **Title normalization:**
 - All Partner variants (Equity Partner, Shareholder, etc.) → `Partner`
-- All Associate variants (M&A Associate, Senior Associate, Attorney, etc.) → `Associate`
+- Senior Associate / Senior Attorney → `Senior Associate` (preserved)
+- International Associate → `International Associate` (preserved)
+- Other Associate variants (M&A Associate, Attorney, etc.) → `Associate`
 - Special Counsel → `Counsel`, Senior Counsel kept as-is
 - Trainee Lawyer kept as-is
 - Clerkships → `Law Clerk, Hon. [Judge], [Court]`
 
 **Inclusions / Exclusions:**
 - Includes: law firm roles, in-house counsel, federal clerkships, secondments
-- Excludes: summers, interns, fellows, volunteers, government (non-clerkship), non-legal roles, mini-pupillages
+- Excludes: summers, interns, fellows, volunteers, government (non-clerkship), mini-pupillages
+- **NEW:** Also excludes non-legal roles: tutors, teachers, educators, HR/recruiting, talent management, non-legal consulting
+- **NEW:** Filters by industry: excludes education, human resources, staffing/recruiting industries
 
 **Firm name cleanup:** Drops LLP, LLC, P.C., PLLC, etc.
 
@@ -149,11 +157,11 @@ STABILITY: [Stable / Some movement / Unstable] — N firms in Y years post-JD
 - Some movement = 3-4 firms with at least one stint under 2 years
 - Unstable = 5+ firms, or 2+ stints under 1 year
 
-**Flags (⚠️ emoji):**
+**Flags ([!] prefix, no emojis for spreadsheet compatibility):**
 - Firm mismatch: bio link domain vs. LinkedIn current firm (30+ firm domain mappings)
 - Gap: 6+ month gap between consecutive roles
 - Long tenure: 10+ years at same firm with no promotion visible
-- Title jump: Associate at Firm A → Partner at Firm B
+- Title jump: Associate at Firm A -> Partner at Firm B
 
 **Multi-format date handling:** Handles all Apify actor variants:
 - `"M-YYYY"` strings (dev_fusion actor)

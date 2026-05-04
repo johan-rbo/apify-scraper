@@ -66,6 +66,13 @@ _GOVERNMENT_INDUSTRIES = {
     "political organization", "military", "public safety",
 }
 
+_NON_LEGAL_INDUSTRIES = {
+    "education administration programs", "education management", "education",
+    "higher education", "e-learning", "primary/secondary education",
+    "human resources", "staffing and recruiting", "professional training & coaching",
+    "management consulting", "business consulting",
+}
+
 _GOVERNMENT_NAME_RE = re.compile(
     r'\bu\.s\.\s+department\b|\bdepartment\s+of\b|\bwhite\s+house\b'
     r'|\bnational\s+security\s+council\b|\battorney\s+general\b'
@@ -77,7 +84,10 @@ _GOVERNMENT_NAME_RE = re.compile(
 
 _EXCLUDE_TITLE_RE = re.compile(
     r'\bsummer\s+associate\b|\bintern(ship)?\b|\bextern(ship)?\b'
-    r'|\bfellow(ship)?\b|\bvolunteer\b|\bstudent\b|\bmini.?pupillage\b',
+    r'|\bfellow(ship)?\b|\bvolunteer\b|\bstudent\b|\bmini.?pupillage\b'
+    r'|\btutor\b|\bteacher\b|\binstructor\b|\bprofessor\b|\beducator\b'
+    r'|\btalent\s+(development|acquisition|management)\b|\brecruiter\b'
+    r'|\bhuman\s+resources\b|\bhr\s+(manager|director|consultant)\b',
     re.IGNORECASE,
 )
 
@@ -95,6 +105,10 @@ def _classify_role(entry: dict) -> str:
         return "exclude"
 
     t_lower = title.lower()
+
+    # Non-legal industries — exclude education, HR, consulting, etc.
+    if industry in _NON_LEGAL_INDUSTRIES:
+        return "exclude"
 
     # Federal clerkship — must come before government check
     if ("law clerk" in t_lower or "judicial clerk" in t_lower) and _FEDERAL_COURT_RE.search(company):
@@ -156,7 +170,13 @@ def _normalize_title(title: str, role_type: str, company: str) -> str:
         return "Trainee Lawyer"
     if re.search(r'\b(partner|shareholder|principal|member)\b', t) and "associate" not in t:
         return "Partner"
-    if re.search(r'\b(associate|attorney|solicitor|senior attorney|senior associate|lawyer)\b', t):
+
+    # Preserve "Senior Associate" and "International Associate" qualifiers
+    if "senior associate" in t or "senior attorney" in t:
+        return "Senior Associate"
+    if "international associate" in t:
+        return "International Associate"
+    if re.search(r'\b(associate|attorney|solicitor|lawyer)\b', t):
         return "Associate"
 
     return title
@@ -347,8 +367,8 @@ def _compute_stability(roles: list, jd_year: int | None) -> str:
     plural = "s" if n_firms != 1 else ""
     if jd_year:
         years_post_jd = CURRENT_YEAR - jd_year
-        return f"STABILITY: {tag} — {n_firms} firm{plural} in {years_post_jd} years post-JD"
-    return f"STABILITY: {tag} — {n_firms} firm{plural}"
+        return f"STABILITY: {tag} - {n_firms} firm{plural} in {years_post_jd} years post-JD"
+    return f"STABILITY: {tag} - {n_firms} firm{plural}"
 
 
 # ---------------------------------------------------------------------------
@@ -460,7 +480,7 @@ def format_work_history(raw_profile_json: str, firm_bio_link: str = "") -> str:
         current_firm = roles[0]["firm"]
         if current_firm and bio_firm.lower() not in current_firm.lower() and current_firm.lower() not in bio_firm.lower():
             flags.append(
-                f"⚠️ Firm mismatch: Firm bio is {bio_firm} but LinkedIn shows most recent "
+                f"[!] Firm mismatch: Firm bio is {bio_firm} but LinkedIn shows most recent "
                 f"role at {current_firm}. Attorney may have recently moved and not updated "
                 f"LinkedIn, or LinkedIn data may be stale."
             )
@@ -480,7 +500,7 @@ def format_work_history(raw_profile_json: str, firm_bio_link: str = "") -> str:
                 curr_label = newer["firm"] or newer["title"]
                 prev_label = older["firm"] or older["title"]
                 flags.append(
-                    f"⚠️ Gap: ~{gap_months}-month gap between "
+                    f"[!] Gap: ~{gap_months}-month gap between "
                     f"{prev_label} and {curr_label}."
                 )
 
@@ -511,8 +531,8 @@ def format_work_history(raw_profile_json: str, firm_bio_link: str = "") -> str:
             if months >= 120:
                 years = months // 12
                 flags.append(
-                    f"⚠️ Long tenure: {years}+ years at {firm_name} with no promotion "
-                    f"shown — likely made Partner before lateraling. Press release search recommended."
+                    f"[!] Long tenure: {years}+ years at {firm_name} with no promotion "
+                    f"shown - likely made Partner before lateraling. Press release search recommended."
                 )
 
     # Title jump — Associate at Firm A → Partner at Firm B with no Partner history at A
@@ -527,8 +547,8 @@ def format_work_history(raw_profile_json: str, firm_bio_link: str = "") -> str:
                 )
                 if not had_partner_at_prev:
                     flags.append(
-                        f"⚠️ Title jump: Associate at {prev_firm} → Partner at "
-                        f"{curr_firm} — may have made Partner at {prev_firm} first."
+                        f"[!] Title jump: Associate at {prev_firm} -> Partner at "
+                        f"{curr_firm} - may have made Partner at {prev_firm} first."
                     )
 
     if flags:
